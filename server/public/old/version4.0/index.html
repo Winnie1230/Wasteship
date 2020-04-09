@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+    <head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<!--Bootstrap Toggle-->
+		<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+
+		<!--link css file-->
+		<link rel="stylesheet" href="./css/index.css">
+
+		<!--jquery-confirm-v3-->
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+		<title>IR Remote Controller</title>
+   </head>
+	<body>
+		<nav class="navbar navbar-dark bg-dark navbar_setting">
+			<p id="web_title">Websocket</p>
+			<form class="form-inline">
+				<input id="input_num" class="form-control mr-sm-2" type="text" placeholder="Product Number" aria-label="Product Number">
+				<button id="search_button" class="btn btn-outline-light my-2 my-sm-0" type="button">Search</button>
+				<button id="logout_button" class="btn btn-link my-2 my-sm-0" type="reset">LogOut</button>
+			</form>
+		</nav>
+	
+		<p id="remind_text">Enter Product Number!!!</p>
+	
+		<div class="container">
+			<div class="row">
+        		<div id="change_state_block" class="col-sm">
+					<p id="change_state_title">Change Sensor Module State</p>
+					
+					<div class="container">	
+						<div class="row">
+							<div class="col col-lg-3">
+								<p class="sensor_name">Sensor: </p>
+							</div>
+
+							<div class="col col-lg-7">
+								<!--input sensor list-->
+								<select class="custom-select" id="sensor_list" disabled>
+                                    <option selected disabled>select sensor</option>
+                                    <option value="co2">CO2</option>
+                                    <option value="pm2.5">PM2.5</option>
+                                    <option value="pm10">PM10</option>
+                                    <option value="hcho">HCHO</option>
+                                    <option value="tvoc">TVOC</option>
+                                    <option value="humid">Humid</option>
+                                    <option value="temp">Temperature</option>
+                                    <option value="current">Current</option>
+								</select>				
+					
+							</div>
+						</div>
+		
+	
+						<div class="row">
+							<div class="col col-lg-3">
+								<div>
+									<p class="sensor_name">State: </p>
+								</div>
+							</div>
+						
+							<div class="col col-lg-7">
+								<!--input on/off list-->
+								<select class="custom-select" id="on_off_list" disabled>
+ 									<option selected disabled>select sensor state</option>
+									<option value="on">ON</option>
+									<option value="off">OFF</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="row align-items-end">
+							<div class="col-md-3 ml-auto">
+								<button type="submit" disabled id="send_button" class="btn btn-outline-secondary">Send</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="controller_state_block" class="col-sm">
+					<p class="state_block_title">Sensor Module State</p>
+					<div class="container">
+						<div class="row">
+							<div class="col col-lg-7">
+								<p class="sensor_name text-left">CO2</p>
+							</div>
+							<div class="col col-lg-3">
+								<h3>
+									<span id="co2_state" class="sensor_state badge badge-danger">OFF</span>	
+                                </h3>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col col-lg-7">
+								<p class="sensor_name text-left">PM2.5</p>
+							</div>
+							<div class="col col-lg-3">
+								<h3>
+									<span id="pm2_state" class="sensor_state badge badge-danger">OFF</span>	
+                                </h3>
+							</div>
+						</div>
+
+
+ 						<div class="row">
+							<div class="col col-lg-7">
+								<p class="sensor_name text-left">PM10</p>
+							</div>
+							<div class="col col-lg-3">
+								<h3>
+									<span id="pm10_state" class="sensor_state badge badge-danger">OFF</span>	
+                                </h3>
+	
+							</div>
+						</div>
+
+ 						<div class="row">
+							<div class="col col-lg-7">
+								<p class="sensor_name text-left">HCHO</p>
+							</div>
+							<div class="col col-lg-3">
+								<h3>
+									<span id="hcho_state" class="sensor_state badge badge-danger">OFF</span>	
+                                </h3>
+							</div>
+						</div>
+
+
+  						<div class="row">
+							<div class="col col-lg-7">
+								<p class="sensor_name text-left">TVOC</p>
+							</div>
+							<div class="col col-lg-3">
+								<h3>
+									<span id="tvoc_state" class="sensor_state badge badge-danger">OFF</span>	
+                                </h3>
+							</div>
+						</div>
+                       
+                        
+						<div class="row">
+							<div class="col col-lg-7">
+								<p class="sensor_name text-left">Humid</p>
+							</div>
+							<div class="col col-lg-3">
+								<h3>
+									<span id="humid_state" class="sensor_state badge badge-danger">OFF</span>	
+                                </h3>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="col col-lg-7">
+								<p class="sensor_name text-left">Temperature</p>
+							</div>
+							<div class="col col-lg-3">
+								<h3>
+									<span id="temp_state" class="sensor_state badge badge-danger">OFF</span>	
+                                </h3>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="col col-lg-7">
+								<p class="sensor_name text-left">Current</p>
+							</div>
+							<div class="col col-lg-3">
+								<h3>
+									<span id="current_state" class="sensor_state badge badge-danger">OFF</span>	
+                                </h3>
+							</div>
+						</div>
+                        
+
+						<div class="row align-items-end">
+							<div class="col-md-3 ml-auto">
+								<button type="button" disabled id="reload_button" class="btn btn-outline-secondary">Reload</button> 
+                        	</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        <script src="https://kit.fontawesome.com/af046df13d.js" crossorigin="anonymous"></script>
+		<script src="./js/index.js"></script>
+	</body>
+</html>
