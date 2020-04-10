@@ -1,121 +1,49 @@
 #web_title{
-    font-family: comic sans ms;
-    font-weight: bold;
-    font-size: 25px;
     color: #FFFFFF;
-    margin-top: 10px;
-    //margin-left: 40px;
-}
-
-.navbar_setting{
-    margin-bottom: 10px;
-}
-
-p{
     font-family: comic sans ms;
     font-weight: bold;
-    color: #666666;
-}
-
-#loading_gif{
-    width: 80%;
-    height: 80%;
-}
-
-#remind_text{
-	font-size: 20px;
-	color: #000000;
-	//margin-left: 15px;
-    margin-bottom: 15px;
-    //float: left;
-}
-
-#change_state_block{
-    //width: 20%;
-    height: 50%;
-    border: 2px #888888 solid;
-    border-radius: 10px;
-    //background-color: #CCDDFF;
-    margin-left: 70px;
-    margin-right: 50px;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-	padding-bottom: 20px;
-    float: left;
-    overflow: auto;
-}
-
-#send_button{
-    margin-top: 20px;
-}
-
-#change_state_title{
     font-size: 25px;
-    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
-#initial_block{
-    //width: auto;
-    height: 50%;
-    border: 2px #888888 solid;
-    border-radius: 10px;
-    //background-color: #CCDDFF;
-    margin-top: 30px;
-    margin-left: 70px;
-    margin-right: 50px;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 85px;
-	padding-bottom: 20px;
+.top,
+.middle,
+.bottom {
+  display: flex;
+  flex-direction: row;
 }
 
-#initial_title{
-    font-size: 25px;
+.top,
+.bottom {
+  justify-content: center;
 }
 
-#controller_state_block{
-    //width: 28%;
-    height: auto;
-    border: 2px #888888 solid;
-    border-radius: 10px;
-    //background-color: #CCDDFF;
-    margin-left: 70px;
-    margin-right: 70px;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-	padding-bottom: 20px;
-    overflow: auto;
+.middle {
+  justify-content: space-between;
 }
 
-.sensor_state{
-    width: 60px;
-    //font-family: comic sans ms;
+
+
+#rotateMode {
+    border-radius: 50%;
+    width: 240px;
+    height: 240px;
+    background-color: #AAAAAA;
+    color: white;
+    position: relative;
+    top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
-#reload_button{
-    margin-top: 8px;
+#up,#left,#right,#down{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 50px;
 }
 
-.state_block_title{
-	font-size: 25px;
-}
 
-.sensor_name{
-	font-size: 20px;
-}
-
-#search_button{
-	margin-right: 20px;
-}
-
-button{
-	font-family: comic sans ms;
-}
-
-#logout_button{
-	font-size: 20px;
-	font-weight: bold;
-	color: #33CCFF;
-}
