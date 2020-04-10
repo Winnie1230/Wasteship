@@ -11,18 +11,23 @@ MAIN_INDEX = '/index.html'
 
 PORT = 11230 #web port
 
-async def Test(request):
-    print('test check')
+async def HomePage(request):
     return web.FileResponse(FILE_PATH + '/index.html')
 #return web.Response(text="ok",content_type='text/html')
 
+
+async def ChangeDirection(request):
+    direction = request.rel_url.query['dir']
+    print(direction)
+    return web.Response(text="ok",content_type='text/html')
 
 async def init(loop):
     app = web.Application()
     app.router.add_static('/public','./public')
     
     #receiving request
-    app.router.add_get('/test',Test)
+    app.router.add_get('/',HomePage)
+    app.router.add_get('/change_dir',ChangeDirection)
     srv = await loop.create_server(app._make_handler(),host='0.0.0.0', port=PORT)
     print("server created")
     return srv
