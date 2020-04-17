@@ -1,3 +1,7 @@
+$(document).ready(()=>{
+	console.log("document ready");
+});
+
 var dir = "";
 $("#up").click(()=>{
 	dir = "up";
@@ -36,7 +40,7 @@ function SendChange(){
 	});
 }
 
-$("body").keydown(function(e) {
+$(document).keydown(function(e) {
 	if(e.keyCode == 37) { // left
 		$("#left").button('toggle');
 		dir = "left";
@@ -59,7 +63,7 @@ $("body").keydown(function(e) {
 	}
 });
 
-$("body").keyup(function(e){
+$(document).keyup(function(e){
 	if(e.keyCode == 37)
 		$("#left").button('toggle');
 	else if(e.keyCode == 39)
